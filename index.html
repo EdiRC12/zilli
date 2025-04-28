@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Zilli - Links</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            background-color: #f8f8f8; /* Subtle background */
+            color: #333;
+            padding: 0 1.25rem; /* Add horizontal padding for responsiveness */
+            max-width: 600px; /* Limit max width on large screens */
+            margin: 0 auto; /* Center the content block */
+        }
+
+        /* Container principal para o header e o círculo do logo */
+        .top-area {
+            background-color: #e1261c; /* Cor vermelha */
+            height: 180px; /* Altura ajustada para acomodar o logo */
+            position: relative; /* Essencial para posicionar o logo absoluto */
+            margin: 0 -1.25rem; /* Compensa o padding do body para ir de ponta a ponta */
+            margin-bottom: 70px; /* Espaço para o círculo do logo se sobrepor */
+            border-bottom-left-radius: 25px; /* Bordas arredondadas como na imagem */
+            border-bottom-right-radius: 25px; /* Bordas arredondadas como na imagem */
+            display: flex; /* Usar flexbox para ajudar a centralizar conteúdos futuros se necessário */
+            justify-content: center;
+            align-items: flex-end; /* Alinha os itens do flexbox (se houver) ao fundo */
+        }
+
+        /* Área do círculo branco contendo o logo, posicionada sobre a borda inferior do header */
+        .logo-circle {
+            position: absolute;
+            bottom: -60px; /* Ajuste para posicionar o centro do círculo sobre a borda */
+            left: 50%; /* Centraliza horizontalmente */
+            transform: translateX(-50%); /* Ajuste fino para centralizar */
+            width: 120px; /* Tamanho do círculo */
+            height: 120px; /* Tamanho do círculo */
+            background-color: #fff;
+            border-radius: 50%; /* Faz o círculo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            overflow: hidden; /* Esconde partes da imagem que possam sair do círculo */
+        }
+
+        .logo-circle img {
+            width: 80px; /* Tamanho da imagem do logo dentro do círculo */
+            height: auto; /* Mantém a proporção */
+            display: block; /* Garante que seja um bloco */
+        }
+
+        .profile-info {
+            text-align: center;
+            padding-top: 60px; /* Adiciona espaço acima do texto para não ficar por baixo do logo */
+            padding-bottom: 20px;
+            padding-left: 1.25rem; /* Adiciona padding lateral herdado do body */
+            padding-right: 1.25rem; /* Adiciona padding lateral herdado do body */
+        }
+
+        .profile-info h1 {
+            font-size: 1.5rem; /* Tamanho de fonte responsivo */
+            margin-bottom: 0.3rem;
+            color: #333;
+        }
+
+        .profile-info p {
+            font-size: 0.9375rem; /* Tamanho de fonte responsivo */
+            color: #666;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .separator {
+            width: 80px;
+            height: 1px;
+            background-color: #ddd;
+            margin: 1.25rem auto; /* Margem responsiva e centralizada */
+        }
+
+        .links-section {
+            padding: 0; /* O padding lateral já está no body */
+            margin-top: 1.25rem; /* Espaço acima dos links */
+        }
+
+        .links-section h2 {
+            font-size: 1.125rem; /* Tamanho de fonte responsivo */
+            margin-bottom: 0.9375rem;
+            color: #333;
+            padding-left: 1.25rem; /* Adiciona padding lateral para alinhar com o conteúdo */
+            padding-right: 1.25rem;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 0.9375rem 1.25rem; /* Padding responsivo incluindo laterais */
+            border-bottom: 1px solid #eee; /* Separador sutil */
+            text-decoration: none;
+            color: inherit;
+            transition: background-color 0.2s ease;
+        }
+
+        .link-item:last-child {
+            border-bottom: none; /* Sem borda no último item */
+        }
+
+        .link-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .link-icon {
+            font-size: 1.5rem; /* Tamanho do ícone responsivo */
+            margin-right: 0.9375rem; /* Margem responsiva */
+            width: 1.875rem; /* Largura fixa para alinhar ícones */
+            text-align: center;
+            flex-shrink: 0; /* Evita que o ícone diminua em telas pequenas */
+        }
+
+        .link-item .fa-whatsapp { color: #25D366; } /* Verde WhatsApp */
+        .link-item .fa-envelope { color: #dc4e41; } /* Cor comum de email */
+        .link-item .fa-globe { color: #333; } /* Cor escura genérica para web */
+        .link-item .fa-instagram { color: #E1306C; } /* Cor Instagram */
+        .link-item .fa-linkedin-in { color: #0A66C2; } /* Azul LinkedIn */
+
+
+        .link-item .fa-arrow-right {
+            color: #ccc;
+            font-size: 1.125rem; /* Tamanho da seta responsivo */
+            flex-shrink: 0; /* Evita que a seta diminua */
+        }
+
+        .link-text {
+            flex-grow: 1; /* Permite que o texto ocupe o espaço disponível */
+            font-size: 1rem; /* Tamanho de fonte responsivo */
+            margin-right: 0.9375rem; /* Espaço entre o texto e a seta */
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1.25rem; /* Padding responsivo */
+            font-size: 0.75rem; /* Tamanho de fonte responsivo */
+            color: #aaa;
+        }
+
+        /* Ajustes para telas muito pequenas, se necessário */
+        @media (max-width: 360px) {
+            body {
+                padding: 0 1rem; /* Reduz um pouco o padding lateral em telas estreitas */
+            }
+            .top-area {
+                 margin: 0 -1rem; /* Ajusta a margem para compensar o novo padding do body */
+            }
+            .links-section h2, .link-item {
+                 padding-left: 1rem; /* Ajusta o padding dos itens e título da lista */
+                 padding-right: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Área superior com o fundo vermelho e as bordas arredondadas -->
+    <div class="top-area">
+        <!-- O círculo do logo é posicionado ABSOLUTAMENTE DENTRO desta área -->
+        <div class="logo-circle">
+            <img src="https://www.plastimarau.com.br/wp-content/uploads/2024/06/logo-plastimarau.png" alt="Logo Plastimarau">
+        </div>
+    </div>
+
+    <div class="profile-info">
+        <h1>Graziela Borges</h1>
+        <p>Gerente P&D / Engenharia / Qualidade</p>
+    </div>
+
+    <div class="separator"></div> <!-- A linha cinza -->
+
+    <div class="links-section">
+        <h2>Encontrem-me no</h2>
+
+        <a href="https://wa.me/555499309599" class="link-item" target="_blank">
+            <span class="link-icon"><i class="fab fa-whatsapp"></i></span>
+            <span class="link-text">WhatsApp</span>
+            <span class="arrow-icon"><i class="fas fa-arrow-right"></i></span>
+        </a>
+
+         <a href="assistencia.tecnica@plastimarau.com.br" class="link-item">
+            <span class="link-icon"><i class="fas fa-envelope"></i></span>
+            <span class="link-text">Email</span>
+            <span class="arrow-icon"><i class="fas fa-arrow-right"></i></span>
+        </a>
+
+        <a href="https://www.plastimarau.com.br/" class="link-item" target="_blank">
+            <span class="link-icon"><i class="fas fa-globe"></i></span>
+            <span class="link-text">Web</span>
+            <span class="arrow-icon"><i class="fas fa-arrow-right"></i></span>
+        </a>
+
+        <a href="https://www.instagram.com/plastimarau/" class="link-item" target="_blank">
+            <span class="link-icon"><i class="fab fa-instagram"></i></span>
+            <span class="link-text">Instagram</span>
+            <span class="arrow-icon"><i class="fas fa-arrow-right"></i></span>
+        </a>
+
+        <a href="https://www.linkedin.com/company/plastimarau/?viewAsMember=true" class="link-item" target="_blank">
+            <span class="link-icon"><i class="fab fa-linkedin-in"></i></span>
+            <span class="link-text">LinkedIn</span>
+            <span class="arrow-icon"><i class="fas fa-arrow-right"></i></span>
+        </a>
+
+    </div>
+
+    <div class="footer">
+        Plastimarau®
+    </div>
+
+</body>
+</html>
